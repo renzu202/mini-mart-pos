@@ -1,0 +1,38 @@
+<div class="pos-container">
+
+  <!-- Top Bar -->
+  <header>
+    <div class="top-bar">
+      <div class="pos-title-container">
+          <h2 class="pos-title"> <mat-icon>store</mat-icon> Mini Mart POS</h2>
+        <span class="subtitle">Point of Sale System</span>
+      </div>
+      <div class="tab-buttons">
+        <button mat-fab extended class="tab-button inventory-btn" (click)="openInventory()"><mat-icon class="inventory-icon">inventory</mat-icon>Inventory</button>
+        <button mat-fab extended class="tab-button order-btn" (click)="openOrderHistory()"><mat-icon class="order-icon">history</mat-icon>Order History</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="main">
+    <!-- LEFT: Products -->
+      <app-products class="app-products"></app-products>
+
+    <!-- RIGHT: Current Order-->
+    <div class="current-order">
+      <div class="order-header">
+      <h3 class="order-title">Current Order</h3>
+        <button mat-fab extended type="button" (click)="clearCart()">
+          <mat-icon>delete</mat-icon> Clear Cart
+        </button>
+      </div>
+      <div class="cart">
+          <app-cart-items></app-cart-items>
+          <app-order-summary></app-order-summary>
+      </div>
+
+    </div>
+  </div>
+
+</div>

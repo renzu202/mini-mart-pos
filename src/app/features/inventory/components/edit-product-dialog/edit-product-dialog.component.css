@@ -1,0 +1,29 @@
+.edit-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-dialog-actions {
+  margin-top: 10px;
+}
+
+h2{
+  color: white !important;
+  background-color: #5882A9;
+}
+
+.cancel{
+  background-color: gray;
+  color: white;
+}
+
+.save{
+  color: white;
+  background-color: #5882A9;
+}

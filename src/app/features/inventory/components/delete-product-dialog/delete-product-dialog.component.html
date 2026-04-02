@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Delete Product</h2>
+
+<mat-dialog-content>
+  Are you sure you want to delete <span class="product-name">{{data.name}}?</span>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button (click)="close()" class="btn-cancel">Cancel</button>
+  <button mat-raised-button (click)="deleteProduct(data.productId)" class="btn-delete">Delete</button>
+</mat-dialog-actions>

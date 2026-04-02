@@ -1,0 +1,31 @@
+<div class="order-summary">
+  <h4 class="order-summary-title">Order Summary:</h4>
+
+  <div class="summary-content">
+    <div class="summary-row">
+      <span>Subtotal:</span>
+      <span>{{ (subtotal$ | async) ?? 0 | currency:'PHP' }}</span>
+    </div>
+
+    <div class="summary-row">
+      <span>Tax (3%):</span>
+      <span>{{ (tax$ | async) ?? 0 | currency:'PHP' }}</span>
+    </div>
+
+    <div class="divider-row">
+      <div class="summary-divider"></div>
+    </div>
+
+    <div class="summary-row total-row">
+      <span>Total:</span>
+      <span>{{ (total$ | async) ?? 0 | currency:'PHP' }}</span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button mat-raised-button class="checkout-btn" type="button" (click)="openCheckoutDialog()">
+      <mat-icon>credit_card</mat-icon>
+      Checkout
+    </button>
+  </div>
+</div>

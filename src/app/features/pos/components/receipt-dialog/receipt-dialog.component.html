@@ -1,0 +1,82 @@
+<div class="dialog-header">
+<h2 mat-dialog-title>Receipt</h2>
+
+
+<div class="title-actions">
+<button mat-raised-button type="button" (click)="newTransaction()" class="new-btn">
+  <mat-icon class="add-icon">add</mat-icon>
+  New Transaction</button>
+
+  <mat-icon class="close-btn" (click)="close()">close</mat-icon>
+</div>
+
+</div>
+
+<mat-dialog-content class="receipt-content">
+  <div class="receipt-header">
+    <h3>Mini Mart POS</h3>
+    <p class="subtitle">Point of Sale System</p>
+    <p>{{ data.transactionDate }}</p>
+  </div>
+
+  <div class="receipt-items">
+    @for (item of data.items; track item.id) {
+    <div class="receipt-item">
+      <div class="item-main">
+        <span>{{ item.name }}</span>
+        <span>{{ item.price * item.quantity | currency:'PHP' }}</span>
+      </div>
+      <div class="item-sub">
+        <span>x{{ item.quantity }}</span>
+        <span>{{ item.price | currency:'PHP' }}</span>
+      </div>
+    </div>
+    }
+  </div>
+
+  <div class="receipt-summary">
+    <div class="summary-row">
+      <span>Subtotal</span>
+      <span>{{ data.subtotal | currency:'PHP' }}</span>
+    </div>
+
+    <div class="summary-row">
+      <span>Tax</span>
+      <span>{{ data.tax | currency:'PHP' }}</span>
+    </div>
+
+    <div class="summary-row total-row">
+      <span>Total</span>
+      <span>{{ data.total | currency:'PHP' }}</span>
+    </div>
+
+    <div class="summary-row payment-method">
+      <span>Payment Method</span>
+      <span>{{ paymentMethodLabel }}</span>
+    </div>
+
+    @if (data.paymentMethod === 'cash') {
+    <div class="summary-row">
+      <span>Amount Received</span>
+      <span>{{ (data.amountReceived ?? 0) | currency:'PHP' }}</span>
+    </div>
+
+    <div class="summary-row change">
+      <span>Change</span>
+      <span>{{ (data.change ?? 0) | currency:'PHP' }}</span>
+    </div>
+    }
+  </div>
+</mat-dialog-content>
+
+<div class="receipt-footer">
+  <p class="thank-you">Thank you for your purchase!</p>
+  <p class="visit-again">Please come again 😊</p>
+</div>
+
+<mat-dialog-actions align="end" class="receipt-actions">
+  <button mat-raised-button type="button" (click)="printReceipt()" class="print-btn">
+    <mat-icon>print</mat-icon>
+    Print Receipt</button>
+</mat-dialog-actions>
+

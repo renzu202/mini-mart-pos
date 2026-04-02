@@ -1,0 +1,125 @@
+.pos-container{
+ width: 100%;
+ height: 100%;
+}
+
+/*Top Bar*/
+.top-bar{
+  background-color: #5882A9;
+  border-radius: 25px 25px 0 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 50px;
+  align-items: center;
+  height: auto;
+}
+
+.pos-title{
+  color: white;
+    text-shadow: 
+    -1px -1px #000,  
+     1px -1px #000,
+    -1px  1px #000,
+     1px  1px #000;
+  margin-bottom: 0px;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.subtitle{
+  font-size: 12px;
+  color: #ffff;
+    text-shadow: 
+    -1px -1px #888,  
+     1px -1px #888,
+    -1px  1px #888,
+     1px  1px #888;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.tab-buttons{
+  display: flex;
+  gap: 20px;
+}
+
+.order-btn{
+  background-color: #E8F5E9;
+  color: #2E7D32;
+}
+
+.order-icon{
+  color: #2E7D32;
+}
+
+.inventory-btn{
+  background-color: #E3F2FD;
+  color: #1565C0;
+}
+
+.inventory-icon{
+  color: #1565C0;
+}
+
+
+
+.tab-buttons .mat-mdc-extended-fab {
+  height: 40px;
+}
+
+/* Main */
+.main{
+  background-color: white;
+  height: 85vh;
+  overflow: hidden;
+  border-radius: 0px 0px 25px 25px;
+  display: grid;
+  grid-template-columns: 3fr 1.1fr;
+}
+
+.app-products{
+  overflow: hidden;
+}
+
+/* Order Side */
+
+.current-order{
+  background-color: #B6C5D9;
+  border-radius: 0px 0px 25px 0px;
+  padding: 0px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.current-order h3{
+  margin: 20px 0px 10px 0px;
+}
+
+.cart{
+  background-color: white;
+  flex: 1;
+  border-radius: 18px;
+  padding: 2%;
+}
+
+.order-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.order-title{
+  color: white;
+  text-shadow: 
+    -1px -1px #000,  
+     1px -1px #000,
+    -1px  1px #000,
+     1px  1px #000;
+}
+
+.order-header .mat-mdc-extended-fab{
+  height: 70%;
+  color: white;
+  background-color: rgb(207, 52, 52);
+  border-radius: 10px 10px 10px 10px;
+}
+
+

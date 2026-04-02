@@ -1,0 +1,26 @@
+h2{
+  background-color: #5882A9;
+  color: white !important;
+}
+
+.btn-cancel{
+  color:white;
+  background-color: gray;
+}
+
+.btn-delete{
+  background-color: #cf3434;
+  color: white;
+}
+
+mat-dialog-content{
+  padding: 5% !important;
+}
+
+mat-dialog-actions{
+  border-top: 1px solid rgb(206, 199, 199);
+}
+
+.product-name{
+  font-weight: bold;
+}

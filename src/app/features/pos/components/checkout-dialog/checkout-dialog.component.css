@@ -1,0 +1,56 @@
+h2{
+  color: white !important;
+  background-color: #5882A9;
+}
+
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.summary-box {
+  border: 1px solid gray;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.total-row {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-dialog-actions{
+  padding: 10px 20px;
+}
+
+.submit-btn{
+  background-color: #5882A9;
+  color: white;
+}
+
+.cancel-btn{
+  background-color: gray;
+  color: white;
+}
+

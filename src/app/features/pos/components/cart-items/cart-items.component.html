@@ -1,0 +1,52 @@
+<div class="selected-items">
+  @if ((cartItems$ | async); as cartItems) {
+  @if (cartItems.length > 0) {
+  <div class="cart-list">
+    @for (item of cartItems; track item.id) {
+    <div class="cart-item">
+      <div class="cart-item-image">
+        <img [src]="'images/products/' + item.image" [alt]="item.name" />
+      </div>
+
+      <div class="cart-item-details">
+        <div class="cart-item-top">
+          <h4 class="cart-item-name">{{ item.name }}</h4>
+
+          <button mat-icon-button type="button" (click)="removeFromCart(item)" class="remove-btn">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+
+        <p class="cart-item-price">
+          {{ item.price | currency:'PHP' }}
+        </p>
+
+        <div class="cart-item-actions">
+          <div class="quantity-controls">
+            <button mat-mini-fab type="button" (click)="decreaseQuantity(item.id)" class="action-btn">
+              <mat-icon>remove</mat-icon>
+            </button>
+
+            <span class="quantity">{{ item.quantity }}</span>
+
+            <button mat-mini-fab type="button" (click)="increaseQuantity(item.id, item.stock)" class="action-btn">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+
+          <div class="item-subtotal">
+            {{ item.price * item.quantity | currency:'PHP' }}
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+  } @else {
+  <div class="empty-cart">
+    <mat-icon>shopping_cart</mat-icon>
+    <p>No items selected yet.</p>
+  </div>
+  }
+  }
+</div>

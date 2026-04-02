@@ -1,0 +1,74 @@
+<h2 mat-dialog-title>Edit Product</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="form" class="edit-product-form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Product Name</mat-label>
+      <input matInput formControlName="name">
+
+      @if(form.get('name')?.hasError('required') && form.get('name')?.touched){
+        <mat-error>Product name is required</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Price</mat-label>
+      <input matInput type="number" formControlName="price">
+
+      @if(form.get('price')?.hasError('required') && form.get('price')?.touched){
+        <mat-error>Price is required</mat-error>
+      }
+
+      @if(form.get('price')?.hasError('min') && form.get('price')?.touched){
+        <mat-error>Price must be at least 1</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option value="drinks">Drinks</mat-option>
+        <mat-option value="snacks">Snacks</mat-option>
+        <mat-option value="instant">Instant</mat-option>
+        <mat-option value="essentials">Essentials</mat-option>
+      </mat-select>
+
+      @if(form.get('category')?.hasError('required') && form.get('category')?.touched){
+        <mat-error>Category is required</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Stock</mat-label>
+      <input matInput type="number" formControlName="stock">
+
+      @if(form.get('stock')?.hasError('required') && form.get('stock')?.touched){
+        <mat-error>Stock is required</mat-error>
+      }
+
+      @if(form.get('stock')?.hasError('min') && form.get('stock')?.touched){
+        <mat-error>Stock cannot be negative</mat-error>
+      }
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button
+    mat-raised-button
+    type="button"
+    (click)="close()"
+    class="cancel"
+  >
+    Cancel
+  </button>
+
+  <button
+    mat-raised-button
+    type="button"
+    (click)="saveChanges()"
+    class="save"
+  >
+    Save Changes
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,138 @@
+.dialog-header{
+  background-color: #5882A9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dialog-header h2 {
+  color: white !important;
+}
+
+.title-actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-right: 3%;
+}
+
+.add-icon{
+  font-weight: bold;
+}
+
+.close-btn{
+  color: white;
+  cursor: pointer;
+}
+
+.receipt-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 20px !important;
+  font-size: 13px;
+}
+
+.receipt-header {
+  text-align: center;
+  border-bottom: 1px dashed gray;
+  padding-bottom: 8px;
+}
+
+.receipt-header h3 {
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.receipt-items,
+.receipt-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.receipt-item {
+  border-bottom: 1px dashed gray;
+  padding-bottom: 6px;
+}
+
+.item-main,
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-sub {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.total-row {
+  font-weight: 700;
+  font-size: 16px;
+  border-top: 1px dashed gray;
+  padding-top: 6px;
+}
+
+.receipt-footer {
+  text-align: center;
+  border-top: 1px dashed #ccc;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 8px;
+}
+
+.thank-you {
+  font-weight: 600;
+  margin: 0;
+}
+
+.visit-again {
+  font-size: 12px;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.new-btn{
+  background-color: #E5E7EB;
+  color: #374151;
+}
+
+.print-btn{
+ background-color: #5882A9;
+ color: white;
+}
+
+@media print {
+  .receipt-actions, .new-btn, .close-btn {
+    display: none;
+  }
+
+  h2{
+    display: none;
+  }
+
+  .receipt-content, .receipt-footer {
+    width: 280px;
+    margin: 0 auto;
+  }
+
+  .receipt-footer, .total-row{
+    border-top: 1px dashed gray;
+  }
+
+  .receipt-item, .receipt-header{
+    border-bottom: 1px dashed gray;
+  }
+
+  .payment-method, .change{
+    padding-bottom: 5px;
+  }
+}

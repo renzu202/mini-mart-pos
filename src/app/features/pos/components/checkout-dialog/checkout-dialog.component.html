@@ -1,0 +1,54 @@
+<h2 mat-dialog-title>Checkout</h2>
+
+<mat-dialog-content class="dialog-content">
+  <div class="summary-box">
+    <div class="summary-row">
+      <span>Subtotal</span>
+      <span>{{ data.subtotal | currency:'PHP' }}</span>
+    </div>
+    <div class="summary-row">
+      <span>Tax (3%)</span>
+      <span>{{ data.tax | currency:'PHP' }}</span>
+    </div>
+    <div class="summary-row total-row">
+      <span>Total</span>
+      <span>{{ data.total | currency:'PHP' }}</span>
+    </div>
+  </div>
+
+  <form [formGroup]="form" class="checkout-form">
+    <mat-form-field appearance="outline">
+      <mat-label>Payment Method</mat-label>
+      <mat-select formControlName="paymentMethod">
+        @for (method of paymentMethods; track method.value) {
+          <mat-option [value]="method.value">{{ method.label }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    @if (isCash) {
+      <mat-form-field appearance="outline">
+        <mat-label>Amount Received</mat-label>
+        <input matInput type="number" formControlName="amountReceived" />
+
+        @if (form.controls.amountReceived.hasError('required') && form.controls.amountReceived.touched) {
+          <mat-error>Amount received is required.</mat-error>
+        }
+
+        @if (form.controls.amountReceived.hasError('min') && form.controls.amountReceived.touched) {
+          <mat-error>Amount received must be enough to cover the total.</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Change</mat-label>
+        <input matInput [value]="change | number:'1.2-2'" readonly />
+      </mat-form-field>
+    }
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button type="button" (click)="close()" class="cancel-btn">Cancel</button>
+  <button mat-raised-button type="button" (click)="submit()" class="submit-btn">Submit</button>
+</mat-dialog-actions>

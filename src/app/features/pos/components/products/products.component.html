@@ -1,0 +1,45 @@
+<div class="products">
+  <mat-form-field appearance="outline" class="search-bar">
+    <input matInput type="search" placeholder="Search products..." [(ngModel)]="searchTerm"/>
+    <button matSuffix mat-icon-button type="button">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div class="categories">
+    <button mat-stroked-button [class.active]="selectedCategories === 'all'" (click)="setCategory('all')">
+      All
+    </button>
+
+    <button mat-stroked-button [class.active]="selectedCategories === 'snacks'" (click)="setCategory('snacks')">
+      Snacks
+    </button>
+
+    <button mat-stroked-button [class.active]="selectedCategories === 'drinks'" (click)="setCategory('drinks')">
+      Drinks
+    </button>
+
+    <button mat-stroked-button [class.active]="selectedCategories === 'instant'" (click)="setCategory('instant')">
+      Instant
+    </button>
+
+    <button mat-stroked-button [class.active]="selectedCategories === 'essentials'" (click)="setCategory('essentials')">
+      Essentials
+    </button>
+  </div>
+
+  <div class="product-grid">
+    @if ((products$ | async); as products) {
+      @if (filteredProducts(products).length > 0) {
+        @for (product of filteredProducts(products); track product.id) {
+          <app-product-card
+            [product]="product"
+            (add)="addToCart($event)">
+          </app-product-card>
+        }
+      } @else {
+        <p>No Products found.</p>
+      }
+    }
+  </div>
+</div>

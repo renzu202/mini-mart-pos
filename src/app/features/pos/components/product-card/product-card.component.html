@@ -1,0 +1,19 @@
+<div class="product-card" (click)="addToCart()" [class.disabled]="product.stock === 0">
+  <div class="image-container">
+    <div class="stock-badge">
+      <div class="stock-value-container">
+      <span class="stock-value">{{ product.stock }}</span>
+      </div>
+      <div class="stock-label-container">
+      <span class="stock-label">Stock</span>
+      </div>
+    </div>
+  <img [src]="'images/products/' + product.image" alt="product-image" class="product-image" draggable="false">
+  </div>
+  <div class="product-name">
+    {{product.name}}
+  </div>
+  <div class="product-price">
+    {{product.price | currency: 'PHP' }}
+  </div>
+</div>

@@ -1,0 +1,109 @@
+.inventory-dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inventory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  background-color: #5882A9;
+}
+
+.inventory-header h2{
+  color: white;
+}
+
+.inventory-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 430px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.inventory-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  background: #f9f9f9;
+}
+
+.inventory-item-left {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.inventory-image {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.inventory-details h4 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.inventory-details p {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.inventory-stock {
+  font-weight: bold;
+  color: #334B86;
+}
+
+.add-button{
+  width: 35%;
+  background-color: rgb(58, 126, 58) !important;
+  color: white;
+}
+
+.inventory-actions{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.inventory-actions h4{
+  color: #3a7e3a;
+}
+
+.btn-delete{
+  background-color: rgb(207, 52, 52);
+  color: white;
+  width: 7rem;
+}
+
+.btn-edit{
+  background-color: #5882A9;
+  color: white;
+  width: 7rem;
+}
+
+.close-inventory{
+  background-color: gray;
+  color: white;
+}
+
+mat-dialog-actions{
+  padding: 10px 20px;
+  border-top: 1px solid rgb(206, 199, 199);
+}
+
+@media(min-width: 1440px){
+  .add-button{
+    width: 30%
+  }
+}

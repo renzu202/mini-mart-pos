@@ -1,0 +1,52 @@
+<div class="inventory-dialog">
+  <div class="inventory-header">
+    <h2>Inventory</h2>
+    <button mat-raised-button type="button" (click)="openAddProductDialog()" class="add-button">
+      <mat-icon>add</mat-icon>
+      Add New Product
+    </button>
+  </div>
+
+  <div class="inventory-list">
+    @if ((products$ | async); as products) {
+      @if (products.length > 0) {
+        @for (product of products; track product.id) {
+          <div class="inventory-item">
+            <div class="inventory-item-left">
+              <img
+                [src]="'images/products/' + product.image"
+                [alt]="product.name"
+                class="inventory-image"
+              >
+
+              <div class="inventory-details">
+                <h4>{{ product.name }}</h4>
+                <p>{{ product.category }}</p>
+                <p>{{ product.price | currency:'PHP' }}</p>
+              </div>
+            </div>
+
+            <div class="inventory-actions">
+              <h4>{{product.stock}} units</h4>
+              <button mat-raised-button type="button" (click)="openEditProductDialog(product)" class="btn-edit btn-actions">
+                <mat-icon>edit</mat-icon> Edit
+              </button>
+
+              <button mat-raised-button type="button" (click)="openDeleteDialog(product.id, product.name)" class="btn-delete btn-actions">
+                <mat-icon>delete</mat-icon> Delete
+              </button>
+            </div>
+          </div>
+        }
+      } @else {
+        <p>No products yet.</p>
+      }
+    }
+  </div>
+
+  <mat-dialog-actions>
+        <button mat-raised-button class="close-inventory" type="close" (click)="close()">
+      Close
+    </button>
+  </mat-dialog-actions>
+</div>
