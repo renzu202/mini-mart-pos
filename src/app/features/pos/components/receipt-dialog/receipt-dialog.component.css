@@ -135,4 +135,13 @@
   .payment-method, .change{
     padding-bottom: 5px;
   }
+
+  .toast-container,
+  #toast-container,
+  .ngx-toastr,
+  .toast {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
 }

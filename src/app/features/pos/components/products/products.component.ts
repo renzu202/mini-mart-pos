@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Store } from '@ngrx/store';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { PRODUCTS } from '../../data/products.mock';
@@ -35,8 +36,12 @@ export class ProductsComponent {
   products$: Observable<Product[]>;
   searchTerm = '';
   selectedCategories: 'all' | 'snacks' | 'drinks' | 'instant' | 'essentials' = 'all';
+  isMobile = false;
 
-   constructor(private store: Store) {
+   constructor(
+    private store: Store,
+    private breakpointObserver: BreakpointObserver
+   ) {
     this.products$ = this.store.select(selectAllProducts);
    }
 
@@ -63,6 +68,13 @@ export class ProductsComponent {
 
       return matchesCategory && matchesSearchTerm;
     });
+  }
+
+  ngOnInit(){
+    this.breakpointObserver.observe(['(max-width: 480px)'])
+    .subscribe(result => {
+      this.isMobile = result.matches
+    })
   }
 
 }

@@ -51,7 +51,7 @@ export class PosComponent {
 
   openInventory(): void {
   this.dialog.open(InventoryDialogComponent, {
-    width: '45%',
+    width: '70%',
     maxWidth: '100%'
   });
 }

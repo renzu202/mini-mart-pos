@@ -62,3 +62,15 @@ span{
   background-color: rgb(66, 187, 76) !important;
   color: #071827 !important;
 }
+
+/* tablet / small laptop */
+@media (max-width: 1024px) {
+
+
+ }
+
+/* mobile */
+@media (max-width: 768px) { }
+
+/* small mobile */
+@media (max-width: 480px) { }

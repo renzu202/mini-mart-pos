@@ -6,10 +6,18 @@
     </button>
   </mat-form-field>
 
+  @if(isMobile){
+    <button class="btn-all-mobile" mat-stroked-button [class.active]="selectedCategories === 'all'" (click)="setCategory('all')">
+      All
+    </button>
+  }
+
   <div class="categories">
+    @if(!isMobile){
     <button mat-stroked-button [class.active]="selectedCategories === 'all'" (click)="setCategory('all')">
       All
     </button>
+    }
 
     <button mat-stroked-button [class.active]="selectedCategories === 'snacks'" (click)="setCategory('snacks')">
       Snacks

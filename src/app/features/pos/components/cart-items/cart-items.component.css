@@ -173,8 +173,28 @@
   border-radius: 50px;
 }
 
-@media(min-width: 1280px) and (min-height: 800px){
+@media(min-width: 1280px){
  .selected-items{
   max-height: 500px;
 } 
 }
+
+/* tablet / small laptop */
+@media (max-width: 1024px) {
+
+
+ }
+
+/* mobile */
+@media (max-width: 768px) {
+  .selected-items{
+    min-height: 500px;
+  }
+ }
+
+/* small mobile */
+@media (max-width: 480px) {
+
+
+ }
+
