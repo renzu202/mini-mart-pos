@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideMockStore } from '@ngrx/store/testing';
+import { provideToastr } from 'ngx-toastr';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ReceiptDialogComponent } from './receipt-dialog.component';
 
 describe('ReceiptDialogComponent', () => {
@@ -8,7 +10,19 @@ describe('ReceiptDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReceiptDialogComponent]
+      imports: [ReceiptDialogComponent],
+      providers: [
+        provideToastr(),
+        provideMockStore({}),
+        {
+          provide: MAT_DIALOG_DATA,
+          useValue: {}
+        },
+        {
+          provide: MatDialogRef,
+          useValue: {}
+        }
+      ]
     })
     .compileComponents();
 

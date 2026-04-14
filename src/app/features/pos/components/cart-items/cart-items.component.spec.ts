@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideMockStore } from '@ngrx/store/testing';
+import { provideToastr } from 'ngx-toastr';
 import { CartItemsComponent } from './cart-items.component';
 
 describe('CartItemsComponent', () => {
@@ -8,7 +9,11 @@ describe('CartItemsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CartItemsComponent]
+      imports: [CartItemsComponent],
+      providers: [
+        provideMockStore({}),
+        provideToastr()
+      ]
     })
     .compileComponents();
 

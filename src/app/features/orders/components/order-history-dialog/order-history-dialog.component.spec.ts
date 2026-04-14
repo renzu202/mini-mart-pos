@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideMockStore } from '@ngrx/store/testing';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { OrderHistoryDialogComponent } from './order-history-dialog.component';
 
 describe('OrderHistoryDialogComponent', () => {
@@ -8,7 +9,18 @@ describe('OrderHistoryDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OrderHistoryDialogComponent]
+      imports: [OrderHistoryDialogComponent],
+      providers: [
+        provideMockStore({}),
+        {
+          provide: MatDialogRef,
+          useValue: {}
+        },
+        {
+          provide: MAT_DIALOG_DATA,
+          useValue: {}
+        }
+      ]
     })
     .compileComponents();
 
