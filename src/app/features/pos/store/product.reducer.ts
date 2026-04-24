@@ -1,10 +1,14 @@
 import { createReducer, on } from "@ngrx/store";
 import { initialProductState } from "./product.state";
 import * as ProductActions from "./product.actions";
-import { PRODUCTS } from "../data/products.mock";
 
 export const productReducer = createReducer(
-  { ...initialProductState, products: PRODUCTS },
+  initialProductState,
+
+  on(ProductActions.loadProductsSuccess, (state, { products }) => ({
+    ...state,
+    products
+  })),
 
   on(ProductActions.decreaseStock, (state, { productId }) => ({
     ...state,
@@ -35,18 +39,18 @@ export const productReducer = createReducer(
   })),
 
   on(ProductActions.restoreStock, (state, { item }) => ({
-  ...state,
-  products: state.products.map(product =>
-    product.id === item.id
-      ? { ...product, stock: product.stock + item.quantity }
-      : product
-  )
-})),
+    ...state,
+    products: state.products.map(product =>
+      product.id === item.id
+        ? { ...product, stock: product.stock + item.quantity }
+        : product
+    )
+  })),
 
-on(ProductActions.addProduct, (state, { product }) => ({
-  ...state,
-  products: [...state.products, product]
-})),
+  on(ProductActions.addProduct, (state, { product }) => ({
+    ...state,
+    products: [...state.products, product]
+  })),
 
   on(ProductActions.updateProduct, (state, { product }) => ({
     ...state,

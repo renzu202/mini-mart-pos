@@ -9,7 +9,6 @@ import { Store } from '@ngrx/store';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 import { ProductCardComponent } from '../product-card/product-card.component';
-import { PRODUCTS } from '../../data/products.mock';
 import { Product } from '../../models/product';
 import * as CartActions from '../../store/cart.actions';
 import * as ProductActions from '../../store/product.actions';
@@ -44,6 +43,7 @@ export class ProductsComponent {
    ) {
     this.products$ = this.store.select(selectAllProducts);
    }
+   
 
   setCategory(category: 'all' | 'snacks' | 'drinks' | 'instant' | 'essentials'): void {
     this.selectedCategories = category;
@@ -71,6 +71,8 @@ export class ProductsComponent {
   }
 
   ngOnInit(){
+    this.store.dispatch(ProductActions.loadProducts());
+
     this.breakpointObserver.observe(['(max-width: 480px)'])
     .subscribe(result => {
       this.isMobile = result.matches
