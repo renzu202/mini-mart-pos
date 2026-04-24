@@ -22,8 +22,8 @@ jobs:
         run: npm install
 
       - name: Build Angular
-        run: npm run build -- --configuration production
+        run: npm run build -- --configuration production --base-href=/mini-mart-pos/
 
       - name: Deploy to GitHub Pages
         run: |
-          npx angular-cli-ghpages --dir=dist/my-pos --base-href=/mini-mart-pos/
+          npx angular-cli-ghpages --dir=dist/my-pos
